@@ -1,0 +1,12 @@
+
+bin/
+
+META-INF/
+
+\.project
+
+\.classpath
+
+\.settings/
+
+build\.properties
