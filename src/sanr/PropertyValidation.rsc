@@ -9,6 +9,7 @@
 
 module sanr::PropertyValidation
 
+import IO;
 import List;
 import Set;
 import sanr::DataStructures;
@@ -34,13 +35,17 @@ public bool checkProperty
 	/* Check condition. */
 	switch (condition)
 	{
-		case none():
-		{
-			return size(tileSet) == 0;
-		}
-		case count(int setSize):
+		case exact(int setSize):
 		{
 			return size(tileSet) == setSize;
+		}
+		case atLeast(int setSize):
+		{
+			return size(tileSet) >= setSize;
+		}
+		case atMost(int setSize):
+		{
+			return size(tileSet) <= setSize;
 		}
 	}
 }

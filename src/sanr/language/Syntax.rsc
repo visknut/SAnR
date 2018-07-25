@@ -22,9 +22,10 @@ start syntax LevelSpecification
 syntax Property 
 	= property: Condition TileSet;
 
-syntax Condition         //required condition
-  = none: "no"           //tile set is empty
-  | count: INTEGER size "x"; //tile set size is
+syntax Condition         									//required condition
+  = exact: INTEGER size "x" 							//tile set size is
+  | atLeast: "at" "least" INTEGER size "x" 	//tile set size is at least
+  | atMost: "at" "most" INTEGER size "x"; 	//tile set size is at most
   
 syntax TileSet //defines a set of tiles (now visible)
   = tileSet: IDENTIFIER tileName FilterNow FilterWhere;
@@ -62,7 +63,10 @@ keyword Keyword
   | "x"
   | "adjacent"
   | "to"
-  | "no";
+  | "no"
+  | "at"
+  | "least"
+ 	| "most";
   
 //////////////////////////////////////////////////////////////////////////////
 // API

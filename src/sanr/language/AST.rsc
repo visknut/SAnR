@@ -36,8 +36,9 @@ data Property
 	= property(Condition condition, TileSet tileset);
 	
 data Condition
-	= none()
-	| count(int size);
+	= exact(int size)
+	| atLeast(int size)
+	| atMost(int size);
 	
 data TileSet
 	= tileSet(str tileName, FilterNow filterNow, FilterWhere filterWhere);
